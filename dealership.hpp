@@ -14,7 +14,7 @@
 #define OOP_DEALERSHIP_HPP
 
 class dealer {
-    static std::vector<std::shared_ptr<masina>> stoc;
+    static std::vector<std::shared_ptr<Masina>> stoc;
     static int nr_masini;
 public:
     dealer() = delete;
@@ -24,18 +24,18 @@ public:
     static void stergeMasina(const std::string &);
 
     static void
-    adaugaMasina(const std::shared_ptr<masina> &); //adauga o masina - intreaba clasa si dupa introduce datele
-    static std::vector<std::shared_ptr<masina>> &getStoc();
+    adaugaMasina(const std::shared_ptr<Masina> &); //adauga o Masina - intreaba clasa si dupa introduce datele
+    static std::vector<std::shared_ptr<Masina>> &getStoc();
 
-    static std::shared_ptr<masina> cautaVIN(const std::string &);
+    static std::shared_ptr<Masina> cautaVIN(const std::string &);
 
-    static std::vector<std::shared_ptr<masina>> cautaBrand(const std::string &);
+    static std::vector<std::shared_ptr<Masina>> cautaBrand(const std::string &);
 
-    static std::vector<std::shared_ptr<suv>> cautaSUV();
+    static std::vector<std::shared_ptr<Suv>> cautaSUV();
 
-    static std::vector<std::shared_ptr<sedan>> cautaSedan();
+    static std::vector<std::shared_ptr<Sedan>> cautaSedan();
 
-    static std::vector<std::shared_ptr<coupe>> cautaCoupe();
+    static std::vector<std::shared_ptr<Coupe>> cautaCoupe();
 
 };
 

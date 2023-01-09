@@ -4,7 +4,7 @@
 
 #ifndef OOP_CARTYPES_HPP
 #define OOP_CARTYPES_HPP
-enum class carType{
+enum class CarType{
     SUV=2,
     Sedan=3,
     Coupe=1

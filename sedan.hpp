@@ -6,24 +6,24 @@
 #ifndef OOP_SEDAN_HPP
 #define OOP_SEDAN_HPP
 
-class sedan : public masina {
+class Sedan : public Masina {
     int clasa; // 1-compact,2-executive, 3-luxury
 public:
-    sedan();
+    Sedan();
 
-    sedan(std::string, std::string, std::string, int, int, int);
+    Sedan(std::string, std::string, std::string, int, int, int);
 
     [[maybe_unused]]virtual void setSedan(std::string, std::string, std::string, int, int, int);
 
     [[maybe_unused]]void setClasa(int);
 
-    sedan &operator=(const sedan &);
+    Sedan &operator=(const Sedan &);
 
     void print(std::ostream &) const override;
 
     void read(std::istream &) override;
 
-    sedan(const sedan &copy);
+    Sedan(const Sedan &copy);
 
     [[nodiscard]] int getClasa() const;
 

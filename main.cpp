@@ -8,8 +8,8 @@ using namespace std;
 int main() {
     int intrare = 10, timeout = 0;
     while (intrare && timeout <= 5) {
-        cout << "Optiunea 1: introdu o masina." << endl;
-        cout << "Optiunea 2: sterge o masina dupa VIN." << endl;
+        cout << "Optiunea 1: introdu o Masina." << endl;
+        cout << "Optiunea 2: sterge o Masina dupa VIN." << endl;
         cout << "Optiunea 3: cauta." << endl;
         cout << "Optiunea 4: afiseaza nr de masini si detaliile lor." << endl;
         cout << "Iesire: tasta 0" << endl;
@@ -67,7 +67,7 @@ int main() {
                     std::cin >> garda_sol;
                     std::cout << "Capacitate de tractare: ";
                     std::cin >> cap_tr;
-                    auto suv_add = std::make_shared<suv>(marca_, model_, vin_, an_fab, luna_fab, garda_sol, cap_tr);
+                    auto suv_add = std::make_shared<Suv>(marca_, model_, vin_, an_fab, luna_fab, garda_sol, cap_tr);
                     dealer::adaugaMasina(suv_add);
                 } else {
                     if (input == "B" || input == "b") {
@@ -111,7 +111,7 @@ int main() {
                         std::cout << "Clasa: 1-compact, 2-luxury sau 3-executive: ";
                         std::cin.sync();
                         std::cin >> clasa;
-                        auto sedan_add = std::make_shared<sedan>(marca_, model_, vin_, an_fab, luna_fab, clasa);
+                        auto sedan_add = std::make_shared<Sedan>(marca_, model_, vin_, an_fab, luna_fab, clasa);
                         dealer::adaugaMasina(sedan_add);
                     } else {
                         if (input == "C" || input == "c") {
@@ -171,7 +171,7 @@ int main() {
                                 std::cout << e << std::endl;
                                 break;
                             }
-                            auto coupe_add = std::make_shared<coupe>(marca_, model_, vin_, an_fab, luna_fab, acc, conv);
+                            auto coupe_add = std::make_shared<Coupe>(marca_, model_, vin_, an_fab, luna_fab, acc, conv);
                             dealer::adaugaMasina(coupe_add);
                         } else {
                             std::cout << "Nu s-a introdus o optiune corecta." << std::endl;
@@ -202,7 +202,7 @@ int main() {
                 std::getline(cin, in);
                 if (in == "S" || in == "s") {
                     try {
-                        cautare((int)carType::SUV);
+                        cautare((int)CarType::SUV);
                     }
                     catch (const NotFound &e) {
                         std::cout << e << std::endl;
@@ -211,7 +211,7 @@ int main() {
                 } else {
                     if (in == "B" || in == "b") {
                         try {
-                            cautare((int)carType::Sedan);
+                            cautare((int)CarType::Sedan);
                         }
                         catch (const NotFound &e) {
                             std::cout << e << std::endl;
@@ -220,7 +220,7 @@ int main() {
                     } else {
                         if (in == "C" || in == "c") {
                             try {
-                                cautare((int)carType::Coupe);
+                                cautare((int)CarType::Coupe);
                             }
                             catch (const NotFound &e) {
                                 std::cout << e << std::endl;

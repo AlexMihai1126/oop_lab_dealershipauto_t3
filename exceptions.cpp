@@ -21,7 +21,7 @@ void MonthOutOfRange::print(std::ostream &os) const {
 }
 
 const char *NotFound::what() const noexcept {
-    return "Nu s-a gasit nicio masina.";
+    return "Nu s-a gasit nicio Masina.";
 }
 
 void NotFound::print(std::ostream &os) const {

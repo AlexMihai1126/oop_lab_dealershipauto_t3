@@ -6,7 +6,7 @@
 #include <utility>
 #include "exceptions.hpp"
 
-masina::masina() {
+Masina::Masina() {
     this->marca = " ";
     this->model = " ";
     this->vin = " ";
@@ -15,7 +15,7 @@ masina::masina() {
     this->id=IDGen::getIDGen().getID();
 }
 
-masina::masina(std::string marca, std::string model, std::string vin, int an_fab = 2000, int luna_fab = 01) {
+Masina::Masina(std::string marca, std::string model, std::string vin, int an_fab = 2000, int luna_fab = 01) {
     if (an_fab < 2000) throw YearOutOfRange();
     if (luna_fab < 1 || luna_fab > 12) throw MonthOutOfRange();
     this->marca = std::move(marca);
@@ -27,7 +27,7 @@ masina::masina(std::string marca, std::string model, std::string vin, int an_fab
 }
 
 
-masina::masina(const masina &copy) {
+Masina::Masina(const Masina &copy) {
     this->marca = copy.marca;
     this->model = copy.model;
     this->vin = copy.vin;
@@ -36,51 +36,51 @@ masina::masina(const masina &copy) {
     this->id=IDGen::getIDGen().getID();
 }
 
-[[maybe_unused]]void masina::setMarca(std::string marca_) {
+[[maybe_unused]]void Masina::setMarca(std::string marca_) {
     this->marca = std::move(marca_);
 }
 
-[[maybe_unused]]void masina::setModel(std::string model_) {
+[[maybe_unused]]void Masina::setModel(std::string model_) {
     this->model = std::move(model_);
 }
 
-[[maybe_unused]]void masina::setVin(std::string vin_) {
+[[maybe_unused]]void Masina::setVin(std::string vin_) {
     this->vin = std::move(vin_);
 }
 
-[[maybe_unused]]void masina::setAnFab(int an_fab_) {
+[[maybe_unused]]void Masina::setAnFab(int an_fab_) {
     this->an_fab = an_fab_;
 }
 
-[[maybe_unused]]void masina::setLunaFab(int luna_fab_) {
+[[maybe_unused]]void Masina::setLunaFab(int luna_fab_) {
     this->luna_fab = luna_fab_;
 }
 
-void masina::setID(int id_) {
+void Masina::setID(int id_) {
     this->id=id_;
 }
 
-std::string masina::getModel() const {
+std::string Masina::getModel() const {
     return model;
 }
 
-std::string masina::getMarca() const {
+std::string Masina::getMarca() const {
     return marca;
 }
 
-std::string masina::getVin() const {
+std::string Masina::getVin() const {
     return vin;
 }
 
-int masina::getAnFab() const {
+int Masina::getAnFab() const {
     return an_fab;
 }
 
-int masina::getLunaFab() const {
+int Masina::getLunaFab() const {
     return luna_fab;
 }
 
-void masina::afisareMasina() const {
+void Masina::afisareMasina() const {
     std::cout << "ID: " << getIDMasina() << std::endl;
     std::cout << "Marca: " << getMarca() << " ";
     std::cout << "Model: " << getModel() << " ";
@@ -89,7 +89,7 @@ void masina::afisareMasina() const {
     std::cout << "An fabricatie: " << getAnFab() << std::endl;
 }
 
-masina &masina::operator=(const masina &rhs) {
+Masina &Masina::operator=(const Masina &rhs) {
     if(this !=&rhs){
         model=rhs.model;
         marca=rhs.marca;
@@ -101,8 +101,8 @@ masina &masina::operator=(const masina &rhs) {
     return *this;
 }
 
-int masina::getIDMasina() const {
+int Masina::getIDMasina() const {
     return id;
 }
 
-masina::~masina() = default;
+Masina::~Masina() = default;

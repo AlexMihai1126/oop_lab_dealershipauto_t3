@@ -6,13 +6,13 @@
 #ifndef OOP_SUV_HPP
 #define OOP_SUV_HPP
 
-class suv : public masina {
+class Suv : public Masina {
     float garda_la_sol;
     int capacitate_tractare;
 public:
-    suv();
+    Suv();
 
-    suv(std::string, std::string, std::string, int, int, float, int);
+    Suv(std::string, std::string, std::string, int, int, float, int);
 
     [[maybe_unused]]void setGardaSol(float);
 
@@ -20,7 +20,7 @@ public:
 
     [[maybe_unused]] virtual void setSuv(std::string, std::string, std::string, int, int, float, int);
 
-    suv(const suv &copy);
+    Suv(const Suv &copy);
 
     void print(std::ostream &) const override;
 
@@ -30,7 +30,7 @@ public:
 
     [[nodiscard]] int getCapacitateTractare() const;
 
-    suv &operator=(const suv &);
+    Suv &operator=(const Suv &);
 
     void afisareMasina() const override;
 };

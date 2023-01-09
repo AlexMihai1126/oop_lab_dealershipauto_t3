@@ -9,7 +9,7 @@
 #ifndef OOP_MASINA_HPP
 #define OOP_MASINA_HPP
 
-class masina : public IOStreamR, public IOStreamW {
+class Masina : public IOStreamR, public IOStreamW {
     std::string marca;
     std::string model;
     std::string vin;
@@ -17,11 +17,11 @@ class masina : public IOStreamR, public IOStreamW {
     int luna_fab;
     int id;
 public:
-    masina();
+    Masina();
 
-    masina(std::string, std::string, std::string, int, int);
+    Masina(std::string, std::string, std::string, int, int);
 
-    masina(const masina &copy);
+    Masina(const Masina &copy);
 
     [[maybe_unused]] virtual void setMarca(std::string);
 
@@ -49,9 +49,9 @@ public:
 
     [[maybe_unused]] virtual void afisareMasina() const = 0;
 
-    masina &operator=(const masina &);
+    Masina &operator=(const Masina &);
 
-    virtual ~masina();
+    virtual ~Masina();
 };
 
 #endif //OOP_MASINA_HPP

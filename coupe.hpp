@@ -6,13 +6,13 @@
 #ifndef OOP_COUPE_HPP
 #define OOP_COUPE_HPP
 
-class coupe : public masina {
+class Coupe : public Masina {
     float acc_100; //timp 0-100
     bool isConvertible;
 public:
-    coupe();
+    Coupe();
 
-    coupe(std::string, std::string, std::string, int, int, float, bool);
+    Coupe(std::string, std::string, std::string, int, int, float, bool);
 
     [[maybe_unused]]void setAcc(float);
 
@@ -24,13 +24,13 @@ public:
 
     void read(std::istream &) override;
 
-    coupe(const coupe &copy);
+    Coupe(const Coupe &copy);
 
     [[nodiscard]] float getAcc100() const;
 
     [[nodiscard]] bool getConvertible() const;
 
-    coupe &operator=(const coupe &);
+    Coupe &operator=(const Coupe &);
 
     void afisareMasina() const override;
 };

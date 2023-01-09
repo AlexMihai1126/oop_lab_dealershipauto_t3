@@ -5,25 +5,25 @@
 
 #include <utility>
 
-int sedan::getClasa() const {
+int Sedan::getClasa() const {
     return clasa;
 }
 
-sedan::sedan() : masina() {
+Sedan::Sedan() : Masina() {
     clasa = 0;
 }
 
-sedan::sedan(std::string marca, std::string model, std::string vin, int an_fab, int luna_fab, int clasa_)
-        : masina(std::move(marca), std::move(model), std::move(vin), an_fab, luna_fab), clasa(clasa_) {
+Sedan::Sedan(std::string marca, std::string model, std::string vin, int an_fab, int luna_fab, int clasa_)
+        : Masina(std::move(marca), std::move(model), std::move(vin), an_fab, luna_fab), clasa(clasa_) {
 //constr de init cu lista de initializare
 }
 
-sedan::sedan(const sedan &copy) : masina(copy) {
+Sedan::Sedan(const Sedan &copy) : Masina(copy) {
     clasa = copy.clasa;
 }
 
 [[maybe_unused]] void
-sedan::setSedan(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_,
+Sedan::setSedan(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_,
                 int clasa_) {
     setID(IDGen::getIDGen().getID());
     setMarca(std::move(marca_));
@@ -34,12 +34,12 @@ sedan::setSedan(std::string marca_, std::string model_, std::string vin_, int an
     setClasa(clasa_);
 }
 
-void sedan::afisareMasina() const {
-    masina::afisareMasina();
+void Sedan::afisareMasina() const {
+    Masina::afisareMasina();
     std::cout << "Clasa: " << getClasa() << std::endl;
 }
 
-void sedan::print(std::ostream &os) const {
+void Sedan::print(std::ostream &os) const {
     os << "Sedan:" << std::endl;
     os << "ID: " << getIDMasina() << std::endl;
     os << "Marca: " << getMarca() << std::endl;
@@ -47,13 +47,13 @@ void sedan::print(std::ostream &os) const {
     os << "Vin: " << getVin() << std::endl;
     os << "An fabricatie: " << getAnFab() << std::endl;
     os << "Luna fabricatie: " << getLunaFab() << std::endl;
-    if (getClasa() == 0) os << "Clasa: sedan" << std::endl;
+    if (getClasa() == 0) os << "Clasa: Sedan" << std::endl;
     if (getClasa() == 1) os << "Clasa: compact" << std::endl;
     if (getClasa() == 2) os << "Clasa: executive" << std::endl;
     if (getClasa() == 3) os << "Clasa: luxury" << std::endl;
 }
 
-void sedan::read(std::istream &is) {
+void Sedan::read(std::istream &is) {
     std::string marca_;
     std::string model_;
     std::string vin_;
@@ -74,23 +74,23 @@ void sedan::read(std::istream &is) {
     std::cout << "Luna de fabricatie: ";
     std::cin.sync();
     std::cin >> luna_fab_;
-    masina::setMarca(marca_);
-    masina::setModel(model_);
-    masina::setVin(vin_);
-    masina::setAnFab(an_fab_);
-    masina::setLunaFab(luna_fab_);
+    Masina::setMarca(marca_);
+    Masina::setModel(model_);
+    Masina::setVin(vin_);
+    Masina::setAnFab(an_fab_);
+    Masina::setLunaFab(luna_fab_);
     std::cout << "Clasa: 1-compact, 2-luxury sau 3-executive: ";
     is.sync();
     is >> clasa;
 }
 
-void sedan::setClasa(int cls) {
+void Sedan::setClasa(int cls) {
     clasa = cls;
 }
 
-sedan &sedan::operator=(const sedan &rhs) {
+Sedan &Sedan::operator=(const Sedan &rhs) {
     if(this !=&rhs){
-        masina::operator=(rhs);
+        Masina::operator=(rhs);
         clasa=rhs.clasa;
     }
     return *this;

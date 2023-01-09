@@ -4,27 +4,27 @@
 #include "coupe.hpp"
 #include <utility>
 
-coupe::coupe() : masina() {
+Coupe::Coupe() : Masina() {
     acc_100 = 0;
     isConvertible = false;
 }
 
-coupe::coupe(std::string marca, std::string model, std::string vin, int an_fab, int luna_fab, float acc, bool is_c)
-        : masina(std::move(marca), std::move(model), std::move(vin), an_fab, luna_fab), acc_100(acc),
+Coupe::Coupe(std::string marca, std::string model, std::string vin, int an_fab, int luna_fab, float acc, bool is_c)
+        : Masina(std::move(marca), std::move(model), std::move(vin), an_fab, luna_fab), acc_100(acc),
           isConvertible(is_c) {
 //constr cu lista de init, apelare constr de baza
 }
 
-bool coupe::getConvertible() const {
+bool Coupe::getConvertible() const {
     return isConvertible;
 }
 
-float coupe::getAcc100() const {
+float Coupe::getAcc100() const {
     return acc_100;
 }
 
 [[maybe_unused]] void
-coupe::setCoupe(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_, float acc_100_,
+Coupe::setCoupe(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_, float acc_100_,
                 bool is_c_) {
     setID(IDGen::getIDGen().getID());
     setMarca(std::move(marca_));
@@ -36,14 +36,14 @@ coupe::setCoupe(std::string marca_, std::string model_, std::string vin_, int an
     setConv(is_c_);
 }
 
-coupe::coupe(const coupe &copy) : masina(copy) {
+Coupe::Coupe(const Coupe &copy) : Masina(copy) {
     acc_100 = copy.acc_100;
     isConvertible = copy.isConvertible;
     //constr de copiere
 }
 
-void coupe::afisareMasina() const {
-    masina::afisareMasina();
+void Coupe::afisareMasina() const {
+    Masina::afisareMasina();
     if (getConvertible() == 1) {
         std::cout << "Convertible" << std::endl;
     } else {
@@ -52,7 +52,7 @@ void coupe::afisareMasina() const {
     std::cout << "Acceleratie 0-100: " << getAcc100() << std::endl;
 }
 
-void coupe::print(std::ostream &os) const {
+void Coupe::print(std::ostream &os) const {
     os << "Coupe:" << std::endl;
     os << "ID: " << getIDMasina() << std::endl;
     os << "Marca: " << getMarca() << std::endl;
@@ -68,7 +68,7 @@ void coupe::print(std::ostream &os) const {
     os << "Acceleratie 0-100: " << getAcc100() << std::endl;
 }
 
-void coupe::read(std::istream &is) {
+void Coupe::read(std::istream &is) {
     std::string marca_;
     std::string model_;
     std::string vin_;
@@ -89,11 +89,11 @@ void coupe::read(std::istream &is) {
     std::cout << "Luna de fabricatie: ";
     std::cin.sync();
     std::cin >> luna_fab_;
-    masina::setMarca(marca_);
-    masina::setModel(model_);
-    masina::setVin(vin_);
-    masina::setAnFab(an_fab_);
-    masina::setLunaFab(luna_fab_);
+    Masina::setMarca(marca_);
+    Masina::setModel(model_);
+    Masina::setVin(vin_);
+    Masina::setAnFab(an_fab_);
+    Masina::setLunaFab(luna_fab_);
     std::cout << "Acceleratie 0-100: ";
     is.sync();
     is >> acc_100;
@@ -102,17 +102,17 @@ void coupe::read(std::istream &is) {
     is >> isConvertible;
 }
 
-void coupe::setAcc(float acc) {
+void Coupe::setAcc(float acc) {
     acc_100 = acc;
 }
 
-void coupe::setConv(bool cn) {
+void Coupe::setConv(bool cn) {
     isConvertible = cn;
 }
 
-coupe &coupe::operator=(const coupe &rhs) {
+Coupe &Coupe::operator=(const Coupe &rhs) {
     if(this !=&rhs){
-        masina::operator=(rhs);
+        Masina::operator=(rhs);
         acc_100=rhs.acc_100;
         isConvertible=rhs.isConvertible;
     }
