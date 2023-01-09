@@ -9,7 +9,7 @@ void cautare(int type) {
     switch (type) {
         case 1: {
             try {
-                for (const auto &masina: dealer::cautaCoupe()) {
+                for (const auto &masina: Dealer::cautaCoupe()) {
                     std::cout << *masina << std::endl;
                 }
             }
@@ -20,7 +20,7 @@ void cautare(int type) {
         }
         case 2: {
             try {
-                for (const auto &masina: dealer::cautaSUV()) {
+                for (const auto &masina: Dealer::cautaSUV()) {
                     std::cout << *masina << std::endl;
                 }
             }
@@ -31,7 +31,7 @@ void cautare(int type) {
         }
         case 3: {
             try {
-                for (const auto &masina: dealer::cautaSedan()) {
+                for (const auto &masina: Dealer::cautaSedan()) {
                     std::cout << *masina << std::endl;
                 }
             }
@@ -45,7 +45,7 @@ void cautare(int type) {
                 std::string keyword;
                 std::cout << "Introdu VIN de cautat: " << std::endl;
                 std::getline(std::cin, keyword);
-                std::cout << *dealer::cautaVIN(keyword);
+                std::cout << *Dealer::cautaVIN(keyword);
             }
             catch (const NotFound &err) {
                 std::cout << err << std::endl;
@@ -58,7 +58,7 @@ void cautare(int type) {
                 int nr_rez = 0;
                 std::cout << "Introdu brand-ul de cautat: ";
                 std::getline(std::cin, brand);
-                for (const auto &masina: dealer::cautaBrand(brand)) {
+                for (const auto &masina: Dealer::cautaBrand(brand)) {
                     nr_rez++;
                     std::cout << "Rezultat nr " << nr_rez << ":" << std::endl;
                     std::cout << *masina << std::endl;

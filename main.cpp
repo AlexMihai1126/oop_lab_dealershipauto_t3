@@ -68,7 +68,7 @@ int main() {
                     std::cout << "Capacitate de tractare: ";
                     std::cin >> cap_tr;
                     auto suv_add = std::make_shared<Suv>(marca_, model_, vin_, an_fab, luna_fab, garda_sol, cap_tr);
-                    dealer::adaugaMasina(suv_add);
+                    Dealer::adaugaMasina(suv_add);
                 } else {
                     if (input == "B" || input == "b") {
                         std::cout << "Se va introduce un Sedan" << std::endl;
@@ -112,7 +112,7 @@ int main() {
                         std::cin.sync();
                         std::cin >> clasa;
                         auto sedan_add = std::make_shared<Sedan>(marca_, model_, vin_, an_fab, luna_fab, clasa);
-                        dealer::adaugaMasina(sedan_add);
+                        Dealer::adaugaMasina(sedan_add);
                     } else {
                         if (input == "C" || input == "c") {
                             std::cout << "Se va introduce un Coupe" << std::endl;
@@ -172,7 +172,7 @@ int main() {
                                 break;
                             }
                             auto coupe_add = std::make_shared<Coupe>(marca_, model_, vin_, an_fab, luna_fab, acc, conv);
-                            dealer::adaugaMasina(coupe_add);
+                            Dealer::adaugaMasina(coupe_add);
                         } else {
                             std::cout << "Nu s-a introdus o optiune corecta." << std::endl;
                             break;
@@ -187,7 +187,7 @@ int main() {
                 std::cin.sync();
                 std::getline(cin, vin_del);
                 try {
-                    dealer::stergeMasina(vin_del);
+                    Dealer::stergeMasina(vin_del);
                 }
                 catch (const NotFound &e) {
                     std::cout << e << std::endl;
@@ -256,8 +256,8 @@ int main() {
                 break;
             }
             case 4: {
-                std::cout<<"Numar de masini: "<<dealer::getNrMasini()<<std::endl;
-                for (const auto &obj: dealer::getStoc()) {
+                std::cout << "Numar de masini: " << Dealer::getNrMasini() << std::endl;
+                for (const auto &obj: Dealer::getStoc()) {
                     std::cout << *obj;
                 }
                 break;

@@ -13,11 +13,11 @@
 #ifndef OOP_DEALERSHIP_HPP
 #define OOP_DEALERSHIP_HPP
 
-class dealer {
+class Dealer {
     static std::vector<std::shared_ptr<Masina>> stoc;
     static int nr_masini;
 public:
-    dealer() = delete;
+    Dealer() = delete;
 
     static int getNrMasini();
 
