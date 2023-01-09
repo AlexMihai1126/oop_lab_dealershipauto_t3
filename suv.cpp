@@ -41,6 +41,7 @@ void suv::setCapT(int c) {
 [[maybe_unused]] void
 suv::setSuv(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_, float garda_sol_,
             int cap_t_) {
+    setID(IDGen::getIDGen().getID());
     setMarca(std::move(marca_));
     setModel(std::move(model_));
     setVin(std::move(vin_));
@@ -58,6 +59,7 @@ void suv::afisareMasina() const {
 
 void suv::print(std::ostream &os) const {
     os << "SUV:" << std::endl;
+    os << "ID: " << getIDMasina() << std::endl;
     os << "Marca: " << getMarca() << std::endl;
     os << "Model: " << getModel() << std::endl;
     os << "Vin: " << getVin() << std::endl;

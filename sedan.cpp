@@ -25,6 +25,7 @@ sedan::sedan(const sedan &copy) : masina(copy) {
 [[maybe_unused]] void
 sedan::setSedan(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_,
                 int clasa_) {
+    setID(IDGen::getIDGen().getID());
     setMarca(std::move(marca_));
     setModel(std::move(model_));
     setVin(std::move(vin_));
@@ -40,6 +41,7 @@ void sedan::afisareMasina() const {
 
 void sedan::print(std::ostream &os) const {
     os << "Sedan:" << std::endl;
+    os << "ID: " << getIDMasina() << std::endl;
     os << "Marca: " << getMarca() << std::endl;
     os << "Model: " << getModel() << std::endl;
     os << "Vin: " << getVin() << std::endl;

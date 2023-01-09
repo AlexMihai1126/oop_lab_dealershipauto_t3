@@ -41,7 +41,7 @@ endif()
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml when changing name here
-add_executable(${PROJECT_NAME} main.cpp dealership.hpp dealership.cpp exceptions.hpp exceptions.cpp masina.hpp masina.cpp sedan.hpp sedan.cpp suv.hpp suv.cpp coupe.hpp coupe.cpp IOStreamR.hpp IOStreamR.cpp IOStreamW.cpp IOStreamW.hpp cautare.hpp cautare.cpp carTypes.hpp)
+add_executable(${PROJECT_NAME} main.cpp dealership.hpp dealership.cpp exceptions.hpp exceptions.cpp masina.hpp masina.cpp sedan.hpp sedan.cpp suv.hpp suv.cpp coupe.hpp coupe.cpp IOStreamR.hpp IOStreamR.cpp IOStreamW.cpp IOStreamW.hpp cautare.hpp cautare.cpp carTypes.hpp IDGenerator.hpp IDGenerator.cpp)
 
 ###############################################################################
 

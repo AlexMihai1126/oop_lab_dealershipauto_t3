@@ -26,6 +26,7 @@ float coupe::getAcc100() const {
 [[maybe_unused]] void
 coupe::setCoupe(std::string marca_, std::string model_, std::string vin_, int an_fab_, int luna_fab_, float acc_100_,
                 bool is_c_) {
+    setID(IDGen::getIDGen().getID());
     setMarca(std::move(marca_));
     setModel(std::move(model_));
     setVin(std::move(vin_));
@@ -53,6 +54,7 @@ void coupe::afisareMasina() const {
 
 void coupe::print(std::ostream &os) const {
     os << "Coupe:" << std::endl;
+    os << "ID: " << getIDMasina() << std::endl;
     os << "Marca: " << getMarca() << std::endl;
     os << "Model: " << getModel() << std::endl;
     os << "Vin: " << getVin() << std::endl;

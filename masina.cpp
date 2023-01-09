@@ -12,6 +12,7 @@ masina::masina() {
     this->vin = " ";
     this->an_fab = 2000;
     this->luna_fab = 1;
+    this->id=IDGen::getIDGen().getID();
 }
 
 masina::masina(std::string marca, std::string model, std::string vin, int an_fab = 2000, int luna_fab = 01) {
@@ -22,6 +23,7 @@ masina::masina(std::string marca, std::string model, std::string vin, int an_fab
     this->vin = std::move(vin);
     this->an_fab = an_fab;
     this->luna_fab = luna_fab;
+    this->id=IDGen::getIDGen().getID();
 }
 
 
@@ -31,6 +33,7 @@ masina::masina(const masina &copy) {
     this->vin = copy.vin;
     this->an_fab = copy.an_fab;
     this->luna_fab = copy.luna_fab;
+    this->id=IDGen::getIDGen().getID();
 }
 
 [[maybe_unused]]void masina::setMarca(std::string marca_) {
@@ -51,6 +54,10 @@ masina::masina(const masina &copy) {
 
 [[maybe_unused]]void masina::setLunaFab(int luna_fab_) {
     this->luna_fab = luna_fab_;
+}
+
+void masina::setID(int id_) {
+    this->id=id_;
 }
 
 std::string masina::getModel() const {
@@ -74,6 +81,7 @@ int masina::getLunaFab() const {
 }
 
 void masina::afisareMasina() const {
+    std::cout << "ID: " << getIDMasina() << std::endl;
     std::cout << "Marca: " << getMarca() << " ";
     std::cout << "Model: " << getModel() << " ";
     std::cout << "VIN: " << getVin() << std::endl;
@@ -88,8 +96,13 @@ masina &masina::operator=(const masina &rhs) {
         vin=rhs.vin;
         an_fab=rhs.an_fab;
         luna_fab=rhs.luna_fab;
+        id=IDGen::getIDGen().getID();
     }
     return *this;
+}
+
+int masina::getIDMasina() const {
+    return id;
 }
 
 masina::~masina() = default;

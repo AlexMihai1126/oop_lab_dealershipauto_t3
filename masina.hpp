@@ -4,6 +4,7 @@
 #include <string>
 #include "IOStreamR.hpp"
 #include "IOStreamW.hpp"
+#include "IDGenerator.hpp"
 
 #ifndef OOP_MASINA_HPP
 #define OOP_MASINA_HPP
@@ -14,6 +15,7 @@ class masina : public IOStreamR, public IOStreamW {
     std::string vin;
     int an_fab;
     int luna_fab;
+    int id;
 public:
     masina();
 
@@ -31,6 +33,8 @@ public:
 
     [[maybe_unused]] virtual void setLunaFab(int);
 
+    [[maybe_unused]] virtual void setID(int);
+
     [[nodiscard]] std::string getMarca() const;
 
     [[nodiscard]] std::string getModel() const;
@@ -40,6 +44,8 @@ public:
     [[nodiscard]] int getAnFab() const;
 
     [[nodiscard]] int getLunaFab() const;
+
+    [[nodiscard]] int getIDMasina() const;
 
     [[maybe_unused]] virtual void afisareMasina() const = 0;
 
