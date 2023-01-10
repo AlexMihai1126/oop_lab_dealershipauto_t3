@@ -2,6 +2,7 @@
 #include "dealership.hpp"
 #include "cautare.hpp"
 #include "carTypes.hpp"
+#include "count.hpp"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ int main() {
         cout << "Optiunea 2: sterge o Masina dupa VIN." << endl;
         cout << "Optiunea 3: cauta." << endl;
         cout << "Optiunea 4: afiseaza nr de masini si detaliile lor." << endl;
+        cout << "Optiunea 5: numara masinile cu un anumit brand." << endl;
         cout << "Iesire: tasta 0" << endl;
         cin >> intrare;
         switch (intrare) {
@@ -202,7 +204,7 @@ int main() {
                 std::getline(cin, in);
                 if (in == "S" || in == "s") {
                     try {
-                        cautare((int)CarType::SUV);
+                        cautare((int) CarType::SUV);
                     }
                     catch (const NotFound &e) {
                         std::cout << e << std::endl;
@@ -211,7 +213,7 @@ int main() {
                 } else {
                     if (in == "B" || in == "b") {
                         try {
-                            cautare((int)CarType::Sedan);
+                            cautare((int) CarType::Sedan);
                         }
                         catch (const NotFound &e) {
                             std::cout << e << std::endl;
@@ -220,7 +222,7 @@ int main() {
                     } else {
                         if (in == "C" || in == "c") {
                             try {
-                                cautare((int)CarType::Coupe);
+                                cautare((int) CarType::Coupe);
                             }
                             catch (const NotFound &e) {
                                 std::cout << e << std::endl;
@@ -260,6 +262,13 @@ int main() {
                 for (const auto &obj: Dealer::getStoc()) {
                     std::cout << *obj;
                 }
+                break;
+            }
+            case 5: {
+                string val;
+                cin.sync();
+                getline(cin,val);
+                countN(Dealer::getStoc(),val);
                 break;
             }
             default: {
