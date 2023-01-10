@@ -11,7 +11,8 @@
 template<class T, class S>
 void countN(std::vector<T> v, const S val){
     int nr=0;
-    for(){
+    for (auto it = begin (v); it != end (v); ++it) {
+        if((*it)==val) nr++;
     }
     if(nr==0) std::cout<<"Nu s-a gasit elementul "<<val<<"."<<std::endl;
     else std::cout<<"Numarul de elemente"<<val<<" este de: "<<nr<<"."<<std::endl;
@@ -20,6 +21,10 @@ void countN(std::vector<T> v, const S val){
 template<>
 void countN(const std::vector<std::shared_ptr<Masina>> v, const std::string val){
     int nr=0;
+    std::vector<std::shared_ptr<Masina>> rezultate;
+    for (const auto &masina: v) {
+        if (masina->getMarca() == val) nr++;
+    }
     if(nr==0) std::cout<<"Nu s-a gasit nicio masina cu brand-ul"<<val<<"."<<std::endl;
     else std::cout<<"Numarul de masini care au brand-ul "<<val<<" este de: "<<nr<<"."<<std::endl;
 } //specializare
