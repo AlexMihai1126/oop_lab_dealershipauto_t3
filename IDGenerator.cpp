@@ -4,9 +4,17 @@
 #include "IDGenerator.hpp"
 
 int IDGen::id;
-IDGen*::IDGen::unic= nullptr; //initializez cu null, va primi adresa dupa aplelarea functiei de getIDGen
+IDGen *::IDGen::unic = nullptr; //initializez cu null, va primi adresa dupa aplelarea functiei de getIDGen
 
 int IDGen::getID() {
     id++;
     return id;
+}
+
+IDGen &IDGen::getIDGen() {
+    static IDGen singleton;
+    if (&singleton != unic) {
+        unic = &singleton;
+    }
+    return singleton;
 }

@@ -11,13 +11,7 @@ class IDGen{
         id=0;
     }
 public:
-    static IDGen & getIDGen(){
-        static IDGen singleton;
-        if(&singleton != unic){
-            unic=&singleton;
-        }
-        return singleton;
-    }
+    static IDGen & getIDGen();
     static int getID();
 };
 #endif //OOP_IDGENERATOR_HPP
