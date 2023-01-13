@@ -11,6 +11,8 @@ class IDGen{
         id=0;
     }
 public:
+    IDGen(const IDGen&) = delete;
+    IDGen& operator=(const IDGen&)=delete;
     static IDGen & getIDGen();
     static int getID();
 };
