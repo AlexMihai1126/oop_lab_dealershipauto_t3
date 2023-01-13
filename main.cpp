@@ -2,7 +2,6 @@
 #include "dealership.hpp"
 #include "cautare.hpp"
 #include "carTypes.hpp"
-
 using namespace std;
 
 template<class T, class S>
